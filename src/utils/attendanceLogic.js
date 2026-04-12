@@ -76,7 +76,7 @@ export function calculateBunkPlan(
       totalAttended: optimalProjection.attended,
       totalClasses: optimalProjection.total,
       finalPercentage: optimalProjection.percentage,
-      totalBunksUsed: optionalSchedule.filter((d) => d === "Bunk").length,
+      totalBunksUsed: optimalSchedule.filter((d) => d === "Bunk").length,
     },
     randomProjection: {
       totalAttended: randomProjection.attended,
