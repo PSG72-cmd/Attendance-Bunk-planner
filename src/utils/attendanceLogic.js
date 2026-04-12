@@ -43,7 +43,7 @@ export function calculateBunkPlan(
   );
 
   // Generate optimal future schedule using Greedy Algorithm
-  const optionalSchedule = generateOptimalSchedule(
+  const optimalSchedule = generateOptimalSchedule(
     attendedClasses,
     totalClasses,
     futureClasses,
@@ -57,7 +57,7 @@ export function calculateBunkPlan(
   const optimalProjection = calculateProjection(
     attendedClasses,
     totalClasses,
-    optionalSchedule
+    optimalSchedule
   );
   const randomProjection = calculateProjection(
     attendedClasses,
