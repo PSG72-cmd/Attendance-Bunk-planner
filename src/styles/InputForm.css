@@ -9,17 +9,19 @@
 .form-card {
   background: white;
   padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   max-width: 500px;
   width: 100%;
-  border-top: 4px solid #6366f1;
+  border-top: 4px solid #2563eb;
 }
 
 .form-card h2 {
   color: #1e293b;
-  margin-bottom: 10px;
-  font-size: 28px;
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .form-subtitle {
@@ -42,25 +44,26 @@ form {
 
 .form-group label {
   font-weight: 600;
-  color: #1e293b;
+  color: #334155;
   font-size: 14px;
 }
 
 .form-group input {
   padding: 12px 16px;
-  border: 2px solid #e2e8f0;
-  border-radius: 8px;
-  font-size: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 15px;
   font-family: inherit;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   background: #f8fafc;
+  color: #1e293b;
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: #6366f1;
+  border-color: #2563eb;
   background: white;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .form-group small {
@@ -70,9 +73,9 @@ form {
 
 .error-message {
   padding: 12px 16px;
-  background: #fee2e2;
+  background: #fef2f2;
   border-left: 4px solid #ef4444;
-  border-radius: 6px;
+  border-radius: 4px;
   color: #991b1b;
   font-size: 14px;
   font-weight: 500;
@@ -80,41 +83,40 @@ form {
 
 .btn-calculate {
   padding: 14px 24px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background-color: #2563eb;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(99, 102, 241, 0.3);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   margin-top: 10px;
 }
 
 .btn-calculate:hover {
+  background-color: #1d4ed8;
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.4);
 }
 
 .btn-calculate:active {
-  transform: translateY(0);
+  transform: scale(0.97);
 }
 
 .preset-buttons {
   margin-top: 30px;
   padding-top: 30px;
-  border-top: 2px solid #e2e8f0;
+  border-top: 1px solid #e2e8f0;
 }
 
 .preset-buttons p {
-  color: #1e293b;
+  color: #334155;
   font-weight: 600;
   margin-bottom: 12px;
   font-size: 14px;
 }
 
-.preset-buttons {
+.preset-buttons-grid {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -124,45 +126,53 @@ form {
   flex: 1;
   min-width: 80px;
   padding: 10px 16px;
-  border: 2px solid #e2e8f0;
+  border: 1px solid #cbd5e1;
   background: white;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 14px;
-  transition: all 0.3s ease;
+  font-size: 13px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #475569;
 }
 
 .preset-btn:hover {
-  border-color: #6366f1;
-  color: #6366f1;
+  border-color: #94a3b8;
+  background: #f8fafc;
+}
+
+.preset-btn:active {
+  transform: scale(0.95);
 }
 
 .preset-btn.good {
-  border-color: #10b981;
-  color: #10b981;
+  color: #059669;
+  border-color: #a7f3d0;
 }
 
 .preset-btn.good:hover {
-  background: rgba(16, 185, 129, 0.05);
+  background-color: #ecfdf5;
+  border-color: #059669;
 }
 
 .preset-btn.average {
-  border-color: #f59e0b;
-  color: #f59e0b;
+  color: #d97706;
+  border-color: #fde68a;
 }
 
 .preset-btn.average:hover {
-  background: rgba(245, 158, 11, 0.05);
+  background-color: #fffbeb;
+  border-color: #d97706;
 }
 
 .preset-btn.critical {
-  border-color: #ef4444;
-  color: #ef4444;
+  color: #dc2626;
+  border-color: #fecaca;
 }
 
 .preset-btn.critical:hover {
-  background: rgba(239, 68, 68, 0.05);
+  background-color: #fef2f2;
+  border-color: #dc2626;
 }
 
 /* Responsive */
@@ -171,11 +181,7 @@ form {
     padding: 24px;
   }
 
-  .form-card h2 {
-    font-size: 24px;
-  }
-
-  .preset-buttons {
+  .preset-buttons-grid {
     flex-direction: column;
   }
 
@@ -187,7 +193,6 @@ form {
 @media (max-width: 480px) {
   .form-card {
     padding: 20px;
-    border-radius: 12px;
   }
 
   .form-group input {
@@ -197,6 +202,6 @@ form {
 
   .btn-calculate {
     padding: 12px 20px;
-    font-size: 14px;
+    font-size: 15px;
   }
 }

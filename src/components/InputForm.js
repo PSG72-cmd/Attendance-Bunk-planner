@@ -62,7 +62,7 @@ export default function InputForm({ onCalculate }) {
   return (
     <div className="input-form-container">
       <div className="form-card">
-        <h2>📊 Attendance Calculator</h2>
+        <h2>Attendance Calculator</h2>
         <p className="form-subtitle">
           Enter your current attendance data to analyze your bunk plan
         </p>
@@ -124,30 +124,32 @@ export default function InputForm({ onCalculate }) {
           {error && <div className="error-message">{error}</div>}
 
           <button type="submit" className="btn-calculate">
-            🧮 Calculate Plan
+            Calculate Plan
           </button>
         </form>
 
         <div className="preset-buttons">
           <p>Quick Presets:</p>
-          <button
-            className="preset-btn good"
-            onClick={() => setPreset("good")}
-          >
-            Good
-          </button>
-          <button
-            className="preset-btn average"
-            onClick={() => setPreset("average")}
-          >
-            Average
-          </button>
-          <button
-            className="preset-btn critical"
-            onClick={() => setPreset("critical")}
-          >
-            Critical
-          </button>
+          <div className="preset-buttons-grid">
+            <button
+              className="preset-btn good"
+              onClick={(e) => { e.preventDefault(); setPreset("good"); }}
+            >
+              Good
+            </button>
+            <button
+              className="preset-btn average"
+              onClick={(e) => { e.preventDefault(); setPreset("average"); }}
+            >
+              Average
+            </button>
+            <button
+              className="preset-btn critical"
+              onClick={(e) => { e.preventDefault(); setPreset("critical"); }}
+            >
+              Critical
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -32,20 +32,20 @@ export default function ResultDisplay({ data }) {
   const getStatusEmoji = (status) => {
     switch (status) {
       case "safe":
-        return "✅";
+        return "✓";
       case "warning":
-        return "⚠️";
+        return "!";
       case "critical":
-        return "🚨";
+        return "×";
       default:
-        return "ℹ️";
+        return "i";
     }
   };
 
   return (
     <div className="result-display-container">
       <div className="result-card">
-        <h2 className="result-title">📈 Analysis Results</h2>
+        <h2 className="result-title">Analysis Results</h2>
 
         {/* Current Status Section */}
         <div className="status-section">
@@ -61,8 +61,8 @@ export default function ResultDisplay({ data }) {
               </p>
               <p className="status-text">
                 {isSafe
-                  ? "✅ You are above the required percentage!"
-                  : "⚠️ You need to improve your attendance!"}
+                  ? "✓ You are above the required percentage!"
+                  : "! You need to improve your attendance!"}
               </p>
             </div>
           </div>
@@ -91,25 +91,25 @@ export default function ResultDisplay({ data }) {
         {/* Key Metrics */}
         <div className="metrics-grid">
           <div className="metric-card">
-            <h4>📅 Max Classes to Bunk</h4>
+            <h4>Max Classes to Bunk</h4>
             <p className="metric-value">{data.maxBunkAllowed}</p>
             <p className="metric-desc">Classes you can safely skip</p>
           </div>
 
           <div className="metric-card">
-            <h4>🎯 Min Classes to Attend</h4>
+            <h4>Min Classes to Attend</h4>
             <p className="metric-value">{data.minAttendanceNeeded}</p>
             <p className="metric-desc">In the next {data.minAttendanceNeeded > 0 ? "period" : "period"}</p>
           </div>
 
           <div className="metric-card">
-            <h4>🔄 Time Complexity</h4>
+            <h4>Time Complexity</h4>
             <p className="metric-value">{data.timeComplexity}</p>
             <p className="metric-desc">Greedy Algorithm efficiency</p>
           </div>
 
           <div className="metric-card">
-            <h4>💾 Space Complexity</h4>
+            <h4>Space Complexity</h4>
             <p className="metric-value">{data.spaceComplexity}</p>
             <p className="metric-desc">Array storage requirement</p>
           </div>
@@ -117,12 +117,12 @@ export default function ResultDisplay({ data }) {
 
         {/* Comparison Section */}
         <div className="comparison-section">
-          <h3>🔄 Strategy Comparison</h3>
+          <h3>Strategy Comparison</h3>
           <div className="comparison-grid">
             {/* Optimal Strategy */}
             <div className="strategy-card optimal">
               <div className="strategy-header">
-                <h4>✅ Optimal (Greedy Algorithm)</h4>
+                <h4>Optimal (Greedy Algorithm)</h4>
               </div>
               <div className="strategy-stats">
                 <div className="stat">
@@ -147,7 +147,7 @@ export default function ResultDisplay({ data }) {
                 </div>
               </div>
               <p className="strategy-desc">
-                🧠 Uses Greedy Algorithm to maximize bunk days while staying
+                Uses Greedy Algorithm to maximize bunk days while staying
                 safe
               </p>
             </div>
@@ -155,7 +155,7 @@ export default function ResultDisplay({ data }) {
             {/* Random Strategy */}
             <div className="strategy-card random">
               <div className="strategy-header">
-                <h4>❌ Random (Bad Strategy)</h4>
+                <h4>Random (Bad Strategy)</h4>
               </div>
               <div className="strategy-stats">
                 <div className="stat">
@@ -180,7 +180,7 @@ export default function ResultDisplay({ data }) {
                 </div>
               </div>
               <p className="strategy-desc">
-                🎲 Random bunking without planning - risky!
+                Random bunking without planning - risky!
               </p>
             </div>
           </div>
@@ -188,9 +188,9 @@ export default function ResultDisplay({ data }) {
 
         {/* Algorithm Explanation */}
         <div className="explanation-section">
-          <h3>📚 Algorithm Explanation</h3>
+          <h3>Algorithm Explanation</h3>
           <div className="explanation-card">
-            <h4>🧠 Greedy Algorithm Approach</h4>
+            <h4>Greedy Algorithm Approach</h4>
             <ul>
               <li>
                 <strong>How it works:</strong> For each future class, we decide:
@@ -214,7 +214,7 @@ export default function ResultDisplay({ data }) {
           </div>
 
           <div className="explanation-card">
-            <h4>📊 Array-Based Simulation</h4>
+            <h4>Array-Based Simulation</h4>
             <ul>
               <li>
                 <strong>Data Structure:</strong> We use an array to represent a

@@ -6,8 +6,9 @@
 
 .result-card {
   background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   padding: 40px;
   max-width: 1000px;
   width: 100%;
@@ -15,7 +16,8 @@
 
 .result-title {
   color: #1e293b;
-  font-size: 32px;
+  font-size: 28px;
+  font-weight: 700;
   margin-bottom: 30px;
   text-align: center;
 }
@@ -31,12 +33,12 @@
   padding: 24px;
   background: #f8fafc;
   border-radius: 12px;
-  border-left: 4px solid #6366f1;
+  border-left: 4px solid #2563eb;
   margin-bottom: 24px;
 }
 
 .status-emoji {
-  font-size: 48px;
+  font-size: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,22 +46,23 @@
 }
 
 .status-indicator h3 {
-  color: #64748b;
+  color: #475569;
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .attendance-percent {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
-  color: #6366f1;
+  color: #2563eb;
   margin-bottom: 4px;
 }
 
 .status-text {
-  color: #1e293b;
-  font-size: 14px;
+  color: #334155;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 /* Progress Bar */
@@ -71,8 +74,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
-  font-size: 12px;
-  color: #64748b;
+  font-size: 13px;
+  color: #475569;
   font-weight: 600;
 }
 
@@ -98,15 +101,15 @@
 }
 
 .progress-fill.safe {
-  background: linear-gradient(90deg, #10b981, #059669);
+  background-color: #10b981;
 }
 
 .progress-fill.warning {
-  background: linear-gradient(90deg, #f59e0b, #d97706);
+  background-color: #f59e0b;
 }
 
 .progress-fill.critical {
-  background: linear-gradient(90deg, #ef4444, #dc2626);
+  background-color: #ef4444;
 }
 
 .required-line {
@@ -115,7 +118,7 @@
   width: 2px;
   height: 100%;
   background: #1e293b;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 /* Metrics Grid */
@@ -127,26 +130,26 @@
 }
 
 .metric-card {
-  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  background-color: #f8fafc;
   padding: 24px;
   border-radius: 12px;
   text-align: center;
-  border: 2px solid #e2e8f0;
-  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
 }
 
 .metric-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.1);
-  border-color: #6366f1;
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
 }
 
 .metric-card h4 {
-  color: #6366f1;
-  font-size: 14px;
+  color: #2563eb;
+  font-size: 13px;
   margin-bottom: 12px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  font-weight: 700;
 }
 
 .metric-value {
@@ -158,7 +161,7 @@
 
 .metric-desc {
   color: #64748b;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 /* Comparison Section */
@@ -169,7 +172,8 @@
 .comparison-section h3 {
   color: #1e293b;
   margin-bottom: 20px;
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .comparison-grid {
@@ -181,51 +185,53 @@
 .strategy-card {
   border-radius: 12px;
   padding: 24px;
-  border: 2px solid #e2e8f0;
-  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.strategy-card:active {
+  transform: scale(0.98);
 }
 
 .strategy-card.optimal {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.02));
-  border-color: #10b981;
+  background-color: #ecfdf5;
+  border-color: #a7f3d0;
 }
 
 .strategy-card.optimal:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(16, 185, 129, 0.1),
-    rgba(16, 185, 129, 0.05)
-  );
-  box-shadow: 0 8px 16px rgba(16, 185, 129, 0.1);
+  background-color: #d1fae5;
+  border-color: #34d399;
 }
 
 .strategy-card.random {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(239, 68, 68, 0.02));
-  border-color: #ef4444;
+  background-color: #fef2f2;
+  border-color: #fecaca;
 }
 
 .strategy-card.random:hover {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
-  box-shadow: 0 8px 16px rgba(239, 68, 68, 0.1);
+  background-color: #fee2e2;
+  border-color: #f87171;
 }
 
 .strategy-header {
   margin-bottom: 20px;
   padding-bottom: 16px;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .strategy-header h4 {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 4px;
+  font-weight: 700;
 }
 
 .strategy-card.optimal .strategy-header h4 {
-  color: #10b981;
+  color: #059669;
 }
 
 .strategy-card.random .strategy-header h4 {
-  color: #ef4444;
+  color: #dc2626;
 }
 
 .strategy-stats {
@@ -243,34 +249,34 @@
 }
 
 .stat span {
-  color: #64748b;
+  color: #475569;
   font-size: 14px;
 }
 
 .stat strong {
   color: #1e293b;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
 }
 
 .final-percent {
-  color: #10b981 !important;
+  color: #059669 !important;
 }
 
 .final-percent-good {
-  color: #10b981 !important;
+  color: #059669 !important;
 }
 
 .final-percent-bad {
-  color: #ef4444 !important;
+  color: #dc2626 !important;
 }
 
 .bunk-count {
-  color: #6366f1;
+  color: #2563eb;
 }
 
 .strategy-desc {
-  color: #64748b;
+  color: #475569;
   font-size: 13px;
   line-height: 1.6;
   padding-top: 12px;
@@ -281,27 +287,32 @@
 .explanation-section {
   margin-top: 40px;
   padding-top: 40px;
-  border-top: 2px solid #e2e8f0;
+  border-top: 1px solid #e2e8f0;
 }
 
 .explanation-section h3 {
   color: #1e293b;
   margin-bottom: 20px;
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .explanation-card {
-  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  background-color: #f8fafc;
   padding: 24px;
   border-radius: 12px;
   margin-bottom: 16px;
-  border-left: 4px solid #6366f1;
+  border-left: 4px solid #2563eb;
+  border-top: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .explanation-card h4 {
-  color: #6366f1;
+  color: #2563eb;
   margin-bottom: 16px;
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .explanation-card ul {
@@ -311,21 +322,23 @@
 
 .explanation-card li {
   margin-bottom: 12px;
-  color: #1e293b;
+  color: #334155;
   line-height: 1.6;
   display: flex;
   gap: 12px;
+  font-size: 14px;
 }
 
 .explanation-card li:before {
-  content: "▸";
-  color: #6366f1;
+  content: "→";
+  color: #2563eb;
   font-weight: bold;
   min-width: 20px;
 }
 
 .explanation-card strong {
-  color: #6366f1;
+  color: #1e293b;
+  font-weight: 600;
 }
 
 /* Responsive */
@@ -375,7 +388,7 @@
   }
 
   .attendance-percent {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .explanation-card {

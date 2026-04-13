@@ -32,16 +32,14 @@ function App() {
       {/* Header */}
       <header className="app-header">
         <div className="header-content">
-          <h1 className="app-title">
-            📚 Smart Attendance Bunk Planner
-          </h1>
+          <h1 className="app-title">Smart Attendance Planner</h1>
           <p className="app-subtitle">
-            Powered by Greedy Algorithm & Arrays | DSA Project
+            Optimize your schedule with our greedy algorithm engine
           </p>
           <div className="header-badges">
-            <span className="badge">🧠 Greedy Algorithm</span>
-            <span className="badge">📊 Arrays</span>
-            <span className="badge">⚡ O(n) Complexity</span>
+            <span className="badge">Greedy Algorithm</span>
+            <span className="badge">Arrays</span>
+            <span className="badge">O(n) Complexity</span>
           </div>
         </div>
       </header>
@@ -53,38 +51,34 @@ function App() {
             {/* Problem Statement */}
             <section className="problem-statement">
               <div className="problem-card">
-                <h2>🎯 Problem Statement</h2>
+                <h2>Overview</h2>
                 <p>
-                  <strong>Challenge:</strong> Students often don't know how many
-                  classes they can bunk while maintaining the minimum attendance
-                  requirement (e.g., 75%).
+                  <strong>Challenge:</strong> Students often lack clarity on how
+                  many classes they can miss while adhering to minimum
+                  attendance policies.
                 </p>
                 <p>
-                  <strong>Solution:</strong> This app uses a Greedy Algorithm to
-                  calculate the maximum classes you can bunk and generate an
-                  optimal attendance strategy for the future.
+                  <strong>Solution:</strong> This application utilizes a Greedy
+                  Algorithm to calculate maximum allowable absences and constructs
+                  an optimal attendance scheduling sequence over time.
                 </p>
 
                 <div className="features-grid">
                   <div className="feature">
-                    <span className="feature-icon">📊</span>
                     <h4>Analyze</h4>
-                    <p>Check current attendance status</p>
+                    <p>Review current attendance metrics</p>
                   </div>
                   <div className="feature">
-                    <span className="feature-icon">🎯</span>
                     <h4>Calculate</h4>
-                    <p>Find max bunk & min attend</p>
+                    <p>Compute strict attendance margins</p>
                   </div>
                   <div className="feature">
-                    <span className="feature-icon">📈</span>
                     <h4>Plan</h4>
-                    <p>Get optimal attendance schedule</p>
+                    <p>Generate future schedule</p>
                   </div>
                   <div className="feature">
-                    <span className="feature-icon">🔄</span>
                     <h4>Compare</h4>
-                    <p>See optimal vs random strategy</p>
+                    <p>Optimal strategy vs baseline</p>
                   </div>
                 </div>
               </div>
@@ -98,7 +92,7 @@ function App() {
             {/* Results Section */}
             <div className="results-section">
               <button className="btn-reset" onClick={resetCalculation}>
-                ↻ Calculate Again
+                Recalculate
               </button>
 
               {/* Result Display */}
@@ -120,30 +114,28 @@ function App() {
           <div className="footer-section">
             <h4>About this Project</h4>
             <p>
-              A DSA-based web application demonstrating Greedy Algorithm and
-              Arrays for real-world attendance planning.
+              A web application demonstrating Greedy Algorithm and Arrays for
+              real-world scheduling and attendance planning.
             </p>
           </div>
           <div className="footer-section">
-            <h4>Key Algorithms</h4>
+            <h4>Algorithm Details</h4>
             <ul>
-              <li>🧠 Greedy Algorithm - O(n) time complexity</li>
-              <li>📊 Array Simulation - O(n) space complexity</li>
+              <li>Greedy Strategy Selection</li>
+              <li>O(n) Time Complexity Simulation</li>
             </ul>
           </div>
           <div className="footer-section">
-            <h4>Technologies</h4>
+            <h4>Technology Stack</h4>
             <ul>
-              <li>⚛️ React 18</li>
-              <li>🎨 CSS3</li>
-              <li>📱 Responsive Design</li>
+              <li>React Framework</li>
+              <li>CSS Architecture</li>
+              <li>Responsive Design UI</li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>
-            © 2026 Smart Attendance Bunk Planner | DSA Project | Built with ❤️
-          </p>
+          <p>© 2026 Smart Attendance Planner</p>
         </div>
       </footer>
     </div>

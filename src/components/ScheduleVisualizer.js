@@ -28,7 +28,7 @@ export default function ScheduleVisualizer({ optimalSchedule, randomSchedule }) 
                     >
                       <span className="day-number">{absoluteIdx + 1}</span>
                       <span className="day-status">
-                        {day === "Attend" ? "✅" : "🚫"}
+                        {day === "Attend" ? "✓" : "×"}
                       </span>
                     </div>
                   );
@@ -52,7 +52,7 @@ export default function ScheduleVisualizer({ optimalSchedule, randomSchedule }) 
   return (
     <div className="schedule-visualizer-container">
       <div className="schedule-card">
-        <h2 className="schedule-title">📅 Future Attendance Schedule</h2>
+        <h2 className="schedule-title">Future Attendance Schedule</h2>
         <p className="schedule-subtitle">
           Next {optimalSchedule.length} days - Click to see different strategies
         </p>
@@ -63,13 +63,13 @@ export default function ScheduleVisualizer({ optimalSchedule, randomSchedule }) 
             className={`tab-btn ${activeTab === "optimal" ? "active" : ""}`}
             onClick={() => setActiveTab("optimal")}
           >
-            ✅ Optimal Plan (Greedy)
+            Optimal Plan (Greedy)
           </button>
           <button
             className={`tab-btn ${activeTab === "random" ? "active" : ""}`}
             onClick={() => setActiveTab("random")}
           >
-            ❌ Random Plan
+            Random Plan
           </button>
         </div>
 
@@ -78,22 +78,22 @@ export default function ScheduleVisualizer({ optimalSchedule, randomSchedule }) 
           {activeTab === "optimal" ? (
             <>
               <div className="stat-item">
-                <span className="stat-label">👥 Attend</span>
+                <span className="stat-label">Attend</span>
                 <span className="stat-value attend">{optimalStats.attends}</span>
               </div>
               <div className="stat-item">
-                <span className="stat-label">🚫 Bunk</span>
+                <span className="stat-label">Bunk</span>
                 <span className="stat-value bunk">{optimalStats.bunks}</span>
               </div>
             </>
           ) : (
             <>
               <div className="stat-item">
-                <span className="stat-label">👥 Attend</span>
+                <span className="stat-label">Attend</span>
                 <span className="stat-value attend">{randomStats.attends}</span>
               </div>
               <div className="stat-item">
-                <span className="stat-label">🚫 Bunk</span>
+                <span className="stat-label">Bunk</span>
                 <span className="stat-value bunk">{randomStats.bunks}</span>
               </div>
             </>
@@ -117,7 +117,7 @@ export default function ScheduleVisualizer({ optimalSchedule, randomSchedule }) 
                 </div>
               </div>
               <div className="strategy-note">
-                <strong>💡 Why This Strategy Works:</strong> The Greedy
+                <strong>Why This Strategy Works:</strong> The Greedy
                 Algorithm calculates the minimum classes needed at each step and
                 only attends when necessary, maximizing your bunk days while
                 staying safe.
@@ -138,7 +138,7 @@ export default function ScheduleVisualizer({ optimalSchedule, randomSchedule }) 
                 </div>
               </div>
               <div className="strategy-note warning">
-                <strong>⚠️ Why This Is Risky:</strong> Random bunking without
+                <strong>Why This Is Risky:</strong> Random bunking without
                 planning can lead to unpredictable attendance. You might bunk
                 too much and fail to meet the minimum requirement!
               </div>
@@ -148,7 +148,7 @@ export default function ScheduleVisualizer({ optimalSchedule, randomSchedule }) 
 
         {/* Timeline View (Linear) */}
         <div className="timeline-section">
-          <h3>📊 Timeline View</h3>
+          <h3>Timeline View</h3>
           <div className="timeline">
             {activeTab === "optimal"
               ? optimalSchedule.map((day, idx) => (
@@ -157,7 +157,7 @@ export default function ScheduleVisualizer({ optimalSchedule, randomSchedule }) 
                     className={`timeline-item attend-${day.toLowerCase()}`}
                   >
                     <div className="timeline-marker">
-                      {day === "Attend" ? "✅" : "🚫"}
+                      {day === "Attend" ? "✓" : "×"}
                     </div>
                     <span className="timeline-day">Day {idx + 1}</span>
                   </div>
@@ -168,7 +168,7 @@ export default function ScheduleVisualizer({ optimalSchedule, randomSchedule }) 
                     className={`timeline-item attend-${day.toLowerCase()}`}
                   >
                     <div className="timeline-marker">
-                      {day === "Attend" ? "✅" : "🚫"}
+                      {day === "Attend" ? "✓" : "×"}
                     </div>
                     <span className="timeline-day">Day {idx + 1}</span>
                   </div>
