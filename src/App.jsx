@@ -1,141 +1,93 @@
 import React, { useState } from "react";
-import InputForm from "./components/InputForm";
-import ResultDisplay from "./components/ResultDisplay";
-import ScheduleVisualizer from "./components/ScheduleVisualizer";
-import { calculateBunkPlan } from "./utils/attendanceLogic";
+import { motion, AnimatePresence } from "framer-motion";
+import SubjectForm from "./components/SubjectForm";
+import SubjectCard from "./components/SubjectCard";
 import "./styles/App.css";
 
 function App() {
-  const [analysisResult, setAnalysisResult] = useState(null);
+  const [subjects, setSubjects] = useState([]);
 
-  const handleCalculate = (
-    totalClasses,
-    attendedClasses,
-    requiredPercentage,
-    futureClasses
-  ) => {
-    const result = calculateBunkPlan(
-      totalClasses,
-      attendedClasses,
-      requiredPercentage,
-      futureClasses
-    );
-    setAnalysisResult(result);
+  const handleAddSubject = (subject) => {
+    setSubjects([...subjects, subject]);
   };
 
-  const resetCalculation = () => {
-    setAnalysisResult(null);
+  const handleRemoveSubject = (id) => {
+    setSubjects(subjects.filter(s => s.id !== id));
   };
 
   return (
-    <div className="app-container">
-      {/* Header */}
-      <header className="app-header">
+    <div className="app-container modern-theme">
+      {/* Dynamic Background */}
+      <div className="background-shapes">
+        <div className="shape shape-1"></div>
+        <div className="shape shape-2"></div>
+        <div className="shape shape-3"></div>
+      </div>
+
+      <header className="app-header glass-header">
         <div className="header-content">
-          <h1 className="app-title">Smart Attendance Planner</h1>
-          <p className="app-subtitle">
-            Optimize your schedule with our greedy algorithm engine
-          </p>
-          <div className="header-badges">
-            <span className="badge">Greedy Algorithm</span>
-            <span className="badge">Arrays</span>
-            <span className="badge">O(n) Complexity</span>
-          </div>
+          <motion.h1 
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            className="app-title gradient-text"
+          >
+            Smart Attendance Manager
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="app-subtitle"
+          >
+            Manage multiple subjects, analyze future schedules, and maximize your safe bunks.
+          </motion.p>
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="app-main">
-        {!analysisResult ? (
-          <>
-            {/* Problem Statement */}
-            <section className="problem-statement">
-              <div className="problem-card">
-                <h2>Overview</h2>
-                <p>
-                  <strong>Challenge:</strong> Students often lack clarity on how
-                  many classes they can miss while adhering to minimum
-                  attendance policies.
-                </p>
-                <p>
-                  <strong>Solution:</strong> This application utilizes a Greedy
-                  Algorithm to calculate maximum allowable absences and constructs
-                  an optimal attendance scheduling sequence over time.
-                </p>
+      <main className="app-main dashboard-layout">
+        <SubjectForm onSubmit={handleAddSubject} />
 
-                <div className="features-grid">
-                  <div className="feature">
-                    <h4>Analyze</h4>
-                    <p>Review current attendance metrics</p>
-                  </div>
-                  <div className="feature">
-                    <h4>Calculate</h4>
-                    <p>Compute strict attendance margins</p>
-                  </div>
-                  <div className="feature">
-                    <h4>Plan</h4>
-                    <p>Generate future schedule</p>
-                  </div>
-                  <div className="feature">
-                    <h4>Compare</h4>
-                    <p>Optimal strategy vs baseline</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Input Form */}
-            <InputForm onCalculate={handleCalculate} />
-          </>
+        {subjects.length === 0 ? (
+          <motion.div 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            className="empty-state glass-card"
+          >
+            <h2>No Subjects Added</h2>
+            <p>Add a subject above to generate an optimized attendance timeline.</p>
+          </motion.div>
         ) : (
-          <>
-            {/* Results Section */}
-            <div className="results-section">
-              <button className="btn-reset" onClick={resetCalculation}>
-                Recalculate
-              </button>
-
-              {/* Result Display */}
-              <ResultDisplay data={analysisResult} />
-
-              {/* Schedule Visualizer */}
-              <ScheduleVisualizer
-                optimalSchedule={analysisResult.optimalSchedule}
-                randomSchedule={analysisResult.randomSchedule}
-              />
-            </div>
-          </>
+          <div className="subjects-grid">
+            <AnimatePresence>
+              {subjects.map(subject => (
+                 <SubjectCard 
+                   key={subject.id} 
+                   subject={subject} 
+                   onRemove={handleRemoveSubject} 
+                 />
+              ))}
+            </AnimatePresence>
+          </div>
         )}
       </main>
 
-      {/* Footer */}
-      <footer className="app-footer">
+      <footer className="app-footer glass-footer">
         <div className="footer-content">
           <div className="footer-section">
             <h4>About this Project</h4>
-            <p>
-              A web application demonstrating Greedy Algorithm and Arrays for
-              real-world scheduling and attendance planning.
-            </p>
+            <p>Advanced real-world dashboard using Greedy Algorithm and Arrays for precise attendance projection across dynamic timelines.</p>
           </div>
           <div className="footer-section">
             <h4>Algorithm Details</h4>
             <ul>
-              <li>Greedy Strategy Selection</li>
-              <li>O(n) Time Complexity Simulation</li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h4>Technology Stack</h4>
-            <ul>
-              <li>React Framework</li>
-              <li>CSS Architecture</li>
-              <li>Responsive Design UI</li>
+              <li>O(n) per Subject Projection</li>
+              <li>Greedy Schedule Array Gen</li>
+              <li>Framer Motion Physics</li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>© 2026 Smart Attendance Planner</p>
+          <p>© 2026 Smart Attendance Manager</p>
           <p className="footer-credit">
             Built by Prathmesh Sharma · <a href="https://github.com/PSG72-cmd" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="mailto:prathmeshsharma72@gmail.com">prathmeshsharma72@gmail.com</a>
           </p>
