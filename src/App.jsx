@@ -136,6 +136,9 @@ function App() {
         </div>
         <div className="footer-bottom">
           <p>© 2026 Smart Attendance Planner</p>
+          <p className="footer-credit">
+            Built by Prathmesh Sharma · <a href="https://github.com/PSG72-cmd" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="mailto:prathmeshsharma72@gmail.com">prathmeshsharma72@gmail.com</a>
+          </p>
         </div>
       </footer>
     </div>
