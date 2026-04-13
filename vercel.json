@@ -3,5 +3,10 @@
   "devCommand": "npm start",
   "installCommand": "npm install --legacy-peer-deps",
   "framework": "create-react-app",
-  "outputDirectory": "build"
+  "outputDirectory": "build",
+  "build": {
+    "env": {
+      "NODE_VERSION": "18"
+    }
+  }
 }
